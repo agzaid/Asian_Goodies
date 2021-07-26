@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Asian.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -24,23 +24,48 @@ namespace Asian.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _service.GetAllUsers());
+            ServiceResponse<List<GetUserDto>> response = await _service.GetAllUsers();
+            if (response.Data == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(int id)
         {
-            return Ok(await _service.GetUserById(id));
+            ServiceResponse<GetUserDto> response = await _service.GetUserById(id);
+            if (response.Data == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
         }
         [HttpPost]
         public async Task<IActionResult> addUser(AddUserDto newUser)
         {
-            return Ok(await _service.addUser(newUser));
-        } 
+            ServiceResponse<List<GetUserDto>> response = await _service.addUser(newUser);
+            if (response.Data == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
+        }
         [HttpPut]
         public async Task<IActionResult> UpdateUser(UpdateUserDto UpdateUser)
         {
             ServiceResponse<GetUserDto> response = await _service.UpdateUser(UpdateUser);
-            if (response.Data==null)
+            if (response.Data == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            ServiceResponse<List<GetUserDto>> response = await _service.DeleteUser(id);
+            if (response.Data == null)
             {
                 return NotFound();
             }
