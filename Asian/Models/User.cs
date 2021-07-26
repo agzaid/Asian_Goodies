@@ -12,5 +12,6 @@ namespace Asian.Models
         public GenderEnum Gender { get; set; } = GenderEnum.male; 
         public string Adrress{ get; set; }
         public string City { get; set; }
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 }

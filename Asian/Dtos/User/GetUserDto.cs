@@ -1,4 +1,5 @@
-﻿using Asian.Models;
+﻿using Asian.Dtos.Order;
+using Asian.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace Asian.Dtos.User
         public GenderEnum Gender { get; set; } = GenderEnum.male;
         public string Adrress { get; set; }
         public string City { get; set; }
+        public List<GetOrderDto> Orders { get; set; } = new List<GetOrderDto>();
     }
 }

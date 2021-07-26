@@ -1,4 +1,5 @@
-﻿using Asian.Dtos.User;
+﻿using Asian.Dtos.Order;
+using Asian.Dtos.User;
 using Asian.Models;
 using AutoMapper;
 using System;
@@ -14,6 +15,7 @@ namespace Asian
         {
             CreateMap<User, GetUserDto>();
             CreateMap<AddUserDto, User>();
+            CreateMap<Order, GetOrderDto>();
         }
     }
 }
