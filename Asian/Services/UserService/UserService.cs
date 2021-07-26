@@ -63,7 +63,9 @@ namespace Asian.Services.UserService
             ServiceResponse<List<GetUserDto>> serviceResponse = new ServiceResponse<List<GetUserDto>>();
             try
             {
+
                 List<User> users = await _context.Users.Include(c=>c.Orders).ToListAsync();
+
                 serviceResponse.Data = users.Select(c => _mapper.Map<GetUserDto>(c)).ToList();
             }
             catch (Exception ex)
@@ -79,7 +81,9 @@ namespace Asian.Services.UserService
             ServiceResponse<GetUserDto> serviceResponse = new ServiceResponse<GetUserDto>();
             try
             {
-                User user = await _context.Users.FirstOrDefaultAsync(c => c.Id == id);
+
+                User user = await _context.Users.FirstOrDefaultAsync(c=>c.Id==id);
+
                 serviceResponse.Data = _mapper.Map<GetUserDto>(user);
             }
             catch (Exception ex)

@@ -25,7 +25,9 @@ namespace Asian.Controllers
         public async Task<IActionResult> Get()
         {
             ServiceResponse<List<GetUserDto>> response = await _service.GetAllUsers();
-            if (response.Data == null)
+
+            if (response.Data==null)
+
             {
                 return NotFound();
             }
@@ -35,7 +37,9 @@ namespace Asian.Controllers
         public async Task<IActionResult> GetSingle(int id)
         {
             ServiceResponse<GetUserDto> response = await _service.GetUserById(id);
-            if (response.Data == null)
+
+            if (response.Data==null)
+
             {
                 return NotFound();
             }
@@ -45,12 +49,16 @@ namespace Asian.Controllers
         public async Task<IActionResult> addUser(AddUserDto newUser)
         {
             ServiceResponse<List<GetUserDto>> response = await _service.addUser(newUser);
-            if (response.Data == null)
+
+            if (response.Data==null)
+
             {
                 return NotFound();
             }
             return Ok(response);
-        }
+
+        } 
+
         [HttpPut]
         public async Task<IActionResult> UpdateUser(UpdateUserDto UpdateUser)
         {
@@ -66,6 +74,16 @@ namespace Asian.Controllers
         {
             ServiceResponse<List<GetUserDto>> response = await _service.DeleteUser(id);
             if (response.Data == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            ServiceResponse<List<GetUserDto>> response = await _service.DeleteUser(id);
+            if (response.Data==null)
             {
                 return NotFound();
             }
