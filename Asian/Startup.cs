@@ -1,4 +1,5 @@
 using Asian.Data;
+using Asian.Services.OrderDetailsService;
 using Asian.Services.OrderService;
 using Asian.Services.UserService;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +40,8 @@ namespace Asian
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderDetailsService, OrderDetailsService>();
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

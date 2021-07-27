@@ -64,7 +64,7 @@ namespace Asian.Services.UserService
             try
             {
 
-                List<User> users = await _context.Users.Include(c=>c.Orders).ToListAsync();
+                List<User> users = await _context.Users.Include(c=>c.Orders).ThenInclude(od=>od.orderDetails).ToListAsync();
 
                 serviceResponse.Data = users.Select(c => _mapper.Map<GetUserDto>(c)).ToList();
             }
