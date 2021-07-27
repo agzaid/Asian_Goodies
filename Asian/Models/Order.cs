@@ -12,5 +12,6 @@ namespace Asian.Models
         public DateTime? Date { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        public List<OrderDetails> orderDetails { get; set; } = new List<OrderDetails>();
     }
 }

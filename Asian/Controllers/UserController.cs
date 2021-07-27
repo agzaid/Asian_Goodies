@@ -79,15 +79,5 @@ namespace Asian.Controllers
             }
             return Ok(response);
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            ServiceResponse<List<GetUserDto>> response = await _service.DeleteUser(id);
-            if (response.Data==null)
-            {
-                return NotFound();
-            }
-            return Ok(response);
-        }
     }
 }

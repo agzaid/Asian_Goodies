@@ -48,7 +48,7 @@ namespace Asian.Services.OrderService
             ServiceResponse<List<GetOrderDto>> serviceResponse = new ServiceResponse<List<GetOrderDto>>();
             try
             {
-                List<Order> orders = await _context.Orders.ToListAsync();
+                List<Order> orders = await _context.Orders.Include(c=>c.orderDetails).ToListAsync();
                 serviceResponse.Data = orders.Select(c => _mappper.Map<GetOrderDto>(c)).ToList();
             }
             catch (Exception ex)
