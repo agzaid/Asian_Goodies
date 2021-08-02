@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Asian.Dtos.User
 {
-    public class UpdateUserDto
+    public class UpdateCustomerDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

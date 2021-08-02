@@ -12,11 +12,11 @@ namespace Asian.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        private readonly IUserService _service;
+        private readonly ICustomerService _service;
 
-        public UserController(IUserService service)
+        public CustomerController(ICustomerService service)
         {
             _service = service;
         }
@@ -24,7 +24,7 @@ namespace Asian.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            ServiceResponse<List<GetUserDto>> response = await _service.GetAllUsers();
+            ServiceResponse<List<GetCustomerDto>> response = await _service.GetAllCustomers();
 
             if (response.Data==null)
 
@@ -36,7 +36,7 @@ namespace Asian.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(int id)
         {
-            ServiceResponse<GetUserDto> response = await _service.GetUserById(id);
+            ServiceResponse<GetCustomerDto> response = await _service.GetCustomerById(id);
 
             if (response.Data==null)
 
@@ -46,9 +46,9 @@ namespace Asian.Controllers
             return Ok(response);
         }
         [HttpPost]
-        public async Task<IActionResult> addUser(AddUserDto newUser)
+        public async Task<IActionResult> addCustomer(AddCustomerDto newCustomer)
         {
-            ServiceResponse<List<GetUserDto>> response = await _service.addUser(newUser);
+            ServiceResponse<List<GetCustomerDto>> response = await _service.addCustomer(newCustomer);
 
             if (response.Data==null)
 
@@ -60,9 +60,9 @@ namespace Asian.Controllers
         } 
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser(UpdateUserDto UpdateUser)
+        public async Task<IActionResult> UpdateCustomer(UpdateCustomerDto UpdateCustomer)
         {
-            ServiceResponse<GetUserDto> response = await _service.UpdateUser(UpdateUser);
+            ServiceResponse<GetCustomerDto> response = await _service.UpdateCustomer(UpdateCustomer);
             if (response.Data == null)
             {
                 return NotFound();
@@ -72,7 +72,7 @@ namespace Asian.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            ServiceResponse<List<GetUserDto>> response = await _service.DeleteUser(id);
+            ServiceResponse<List<GetCustomerDto>> response = await _service.DeleteCustomer(id);
             if (response.Data == null)
             {
                 return NotFound();

@@ -10,13 +10,13 @@ namespace Asian.Data
     public class DataContext:DbContext
     {
         public DataContext(DbContextOptions<DataContext> options):base(options)  { }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<OrderDetails>().Property(o => o.OrderDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

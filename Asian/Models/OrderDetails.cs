@@ -10,7 +10,7 @@ namespace Asian.Models
     {
         public int Id { get; set; }
         public int Price { get; set; }
-        public DateTime OrderDate { get; set; } = new DateTime();
+        public DateTime OrderDate { get; set; } =  DateTime.Now;
         public DateTime? ShippingDate { get; set; }
         public string Status { get; set; } = StatusType.Pending;
         public Order order { get; set; }

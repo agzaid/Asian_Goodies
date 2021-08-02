@@ -10,8 +10,8 @@ namespace Asian.Models
         public int Id { get; set; }
         public string Address { get; set; }
         public DateTime? Date { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public List<OrderDetails> orderDetails { get; set; } = new List<OrderDetails>();
     }
 }

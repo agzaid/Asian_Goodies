@@ -14,8 +14,8 @@ namespace Asian
     {
         public AutoMapperProfile()
         {
-            CreateMap<User, GetUserDto>();
-            CreateMap<AddUserDto, User>();
+            CreateMap<Customer, GetCustomerDto>();
+            CreateMap<AddCustomerDto, Customer>();
             CreateMap<Order, GetOrderDto>();
             CreateMap<OrderDetails, GetOrderDetailsDto>();
         }

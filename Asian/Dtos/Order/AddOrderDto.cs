@@ -10,6 +10,6 @@ namespace Asian.Dtos.Order
         public int Id { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }
-        public int UserId { get; set; }
+        public int CustomerId { get; set; }
     }
 }

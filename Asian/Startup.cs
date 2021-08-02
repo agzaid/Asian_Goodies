@@ -1,4 +1,5 @@
 using Asian.Data;
+using Asian.Services.Customerservice;
 using Asian.Services.OrderDetailsService;
 using Asian.Services.OrderService;
 using Asian.Services.UserService;
@@ -38,7 +39,7 @@ namespace Asian
                 );
 
 
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderDetailsService, OrderDetailsService>();
 
